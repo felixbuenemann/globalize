@@ -38,8 +38,6 @@ module Globalize
           translation = record.translations_by_locale[locale] ||
                         record.translations.build(locale: locale.to_s)
           attrs.each { |name, value| translation[name] = value }
-          ensure_foreign_key_for(translation)
-          translation.save!
         end
 
         reset
